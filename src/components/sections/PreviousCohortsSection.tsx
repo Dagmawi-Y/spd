@@ -4,6 +4,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
+import { FadeIn, SlideUp, StaggerContainer, fadeInVariants, slideUpVariants, staggerVariants } from '@/components/ui/motion';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { getFeaturedProjects, hasMoreProjects } from '@/data/projects';
@@ -18,25 +19,32 @@ export const PreviousCohortsSection: React.FC = () => {
       aria-labelledby="previous-cohorts-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <FadeIn variants={fadeInVariants} className="text-center mb-16">
           <h2 id="previous-cohorts-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
             Previous Cohorts
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
             Amazing projects built by our previous cohort participants.
           </p>
-        </div>
+        </FadeIn>
 
-        <div className={`grid gap-8 mb-12 ${
-          featuredProjects.length === 1 
-            ? 'grid-cols-1 max-w-md mx-auto' 
-            : featuredProjects.length === 2 
-            ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto' 
-            : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-        }`}>
+        <StaggerContainer
+          variants={staggerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className={`grid gap-8 mb-12 ${
+            featuredProjects.length === 1 
+              ? 'grid-cols-1 max-w-md mx-auto' 
+              : featuredProjects.length === 2 
+              ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto' 
+              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+          }`}
+        >
           {featuredProjects.map((project) => (
-            <EtherealShadow key={project.id} variant="subtle">
-              <Card className="group hover:shadow-lg transition-all duration-300">
+            <SlideUp key={project.id} variants={slideUpVariants}>
+              <EtherealShadow variant="subtle">
+                <Card className="group hover:shadow-lg transition-all duration-300 h-full">
               <div className="relative overflow-hidden rounded-t-lg">
                 <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center">
                   <div className="text-center text-muted-foreground">
@@ -98,9 +106,10 @@ export const PreviousCohortsSection: React.FC = () => {
                 </div>
               </CardContent>
               </Card>
-            </EtherealShadow>
+              </EtherealShadow>
+            </SlideUp>
           ))}
-        </div>
+        </StaggerContainer>
 
         {showMoreButton && (
           <div className="text-center">

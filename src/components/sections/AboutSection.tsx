@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
+import { FadeIn, SlideUp, StaggerContainer, fadeInVariants, slideUpVariants, staggerVariants, cardHoverVariants } from '@/components/ui/motion';
 import { Code, Users, Target, Zap, BookOpen, Rocket } from 'lucide-react';
 
 export default function AboutSection() {
@@ -41,7 +42,7 @@ export default function AboutSection() {
     <section id="about" className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-background via-background to-muted/50 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <FadeIn variants={fadeInVariants} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 tracking-tight">
             About SPD
           </h2>
@@ -49,40 +50,50 @@ export default function AboutSection() {
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium">
               Transform from aspiring developer to industry-ready engineer in just 3 months.
             </p>
-            {/* <p className="text-lg text-muted-foreground leading-relaxed">
-              SPD isn&apos;t just another coding bootcamp. It&apos;s a mentorship-driven program where you&apos;ll build real projects, 
-              learn from experienced developers, and develop the skills that actually matter in the industry.
-            </p> */}
           </div>
-        </div>
+        </FadeIn>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <StaggerContainer
+          variants={staggerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+        >
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <EtherealShadow key={index} variant="subtle">
-                <Card className="group hover:shadow-lg transition-all duration-300 border-0 bg-card/80 backdrop-blur-sm">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-8 h-8 text-primary-foreground" />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">
-                      {feature.title}
-                    </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                  </CardContent>
-                </Card>
-              </EtherealShadow>
+              <SlideUp key={index} variants={slideUpVariants}>
+                <EtherealShadow variant="subtle">
+                  <Card className="group hover:shadow-lg transition-all duration-300 border-0 bg-card/80 backdrop-blur-sm h-full">
+                    <CardContent className="p-6 text-center">
+                      <div className="w-16 h-16 mx-auto mb-4 bg-primary rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-8 h-8 text-primary-foreground" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">
+                        {feature.title}
+                      </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
+                    </CardContent>
+                  </Card>
+                </EtherealShadow>
+              </SlideUp>
             );
           })}
-        </div>
+        </StaggerContainer>
 
         {/* Stats Section */}
-        <EtherealShadow variant="intense">
-          <Card className="bg-primary text-primary-foreground">
+        <FadeIn 
+          variants={fadeInVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <EtherealShadow variant="intense">
+            <Card className="bg-primary text-primary-foreground">
             <CardContent className="p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div>
@@ -100,10 +111,17 @@ export default function AboutSection() {
               </div>
             </CardContent>
           </Card>
-        </EtherealShadow>
+          </EtherealShadow>
+        </FadeIn>
 
         {/* Mission Statement */}
-        <div className="text-center mt-16">
+        <SlideUp 
+          variants={slideUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
           <EtherealShadow>
             <Card className="max-w-4xl mx-auto bg-card/80 backdrop-blur-sm border-0">
               <CardContent className="p-8 md:p-12">
@@ -118,7 +136,7 @@ export default function AboutSection() {
               </CardContent>
             </Card>
           </EtherealShadow>
-        </div>
+        </SlideUp>
       </div>
     </section>
   );

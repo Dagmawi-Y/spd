@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '../ui/button';
+import { FadeIn, SlideUp, StaggerContainer, fadeInVariants, slideUpVariants, staggerVariants } from '../ui/motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -31,9 +32,14 @@ export function HeroSection() {
       </div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
-        <div className="space-y-8 md:space-y-12">
+        <StaggerContainer
+          variants={staggerVariants}
+          initial="hidden"
+          animate="visible"
+          className="space-y-8 md:space-y-12"
+        >
           {/* Logo */}
-          <div className="flex justify-center">
+          <FadeIn variants={fadeInVariants} className="flex justify-center">
             <div className="relative">
               <Image
                 src="/assets/spd-logo.jpg"
@@ -44,28 +50,32 @@ export function HeroSection() {
                 priority
               />
             </div>
-          </div>
+          </FadeIn>
           
           {/* Main Title */}
-          <h1 
-            id="hero-title"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight"
-          >
-            SPD
-          </h1>
+          <SlideUp variants={slideUpVariants}>
+            <h1 
+              id="hero-title"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight"
+            >
+              SPD
+            </h1>
+          </SlideUp>
           
           {/* Tagline */}
-          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-            3-month mentorship. Real projects. Career readiness.
-          </p>
+          <FadeIn variants={fadeInVariants}>
+            <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
+              3-month mentorship. Real projects. Career readiness.
+            </p>
+          </FadeIn>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center pt-8">
+          <FadeIn variants={fadeInVariants} className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center pt-8">
             <Link href="/apply">
               <Button 
                 variant="default" 
                 size="lg"
-                className="rounded-none px-8 py-4 text-lg font-semibold min-w-[200px] h-14"
+                className="rounded-none px-8 py-4 text-lg font-semibold min-w-[200px] h-14 transition-transform hover:scale-105"
                 aria-label="Apply for Cohort 2 - Navigate to application form"
               >
                 Apply for Cohort 2
@@ -75,14 +85,14 @@ export function HeroSection() {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="rounded-none px-8 py-4 text-lg font-semibold min-w-[200px] h-14"
+                className="rounded-none px-8 py-4 text-lg font-semibold min-w-[200px] h-14 transition-transform hover:scale-105"
                 aria-label="See Previous Cohorts - Navigate to showcase section"
               >
                 See Previous Cohorts
               </Button>
             </Link>
-          </div>
-        </div>
+          </FadeIn>
+        </StaggerContainer>
       </div>
     </section>
   );

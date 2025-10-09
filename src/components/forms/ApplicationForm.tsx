@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
+import { FadeIn, SlideUp, StaggerContainer, fadeInVariants, slideUpVariants, staggerVariants } from '@/components/ui/motion';
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 interface ApplicationFormProps {
@@ -180,7 +181,13 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+    <StaggerContainer
+      variants={staggerVariants}
+      initial="hidden"
+      animate="visible"
+      className="space-y-8"
+    >
+      <form onSubmit={handleSubmit} className="space-y-8" noValidate>
       {submitStatus === 'error' && (
         <EtherealShadow variant="subtle">
           <Card className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950">
@@ -200,8 +207,9 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
       )}
 
       {/* Personal Information */}
-      <EtherealShadow variant="subtle">
-        <Card>
+      <SlideUp variants={slideUpVariants}>
+        <EtherealShadow variant="subtle">
+          <Card>
         <CardHeader>
           <CardTitle>Personal Information</CardTitle>
           <CardDescription>Tell us about yourself</CardDescription>
@@ -288,12 +296,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             />
           </div>
         </CardContent>
-      </Card>
-      </EtherealShadow>
+        </Card>
+        </EtherealShadow>
+      </SlideUp>
 
       {/* Team Information */}
-      <EtherealShadow variant="subtle">
-        <Card>
+      <SlideUp variants={slideUpVariants}>
+        <EtherealShadow variant="subtle">
+          <Card>
         <CardHeader>
           <CardTitle>Team Information</CardTitle>
           <CardDescription>Do you have a team already?</CardDescription>
@@ -321,12 +331,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             </div>
           </div>
         </CardContent>
-      </Card>
-      </EtherealShadow>
+        </Card>
+        </EtherealShadow>
+      </SlideUp>
 
       {/* Project Information */}
-      <EtherealShadow variant="subtle">
-        <Card>
+      <SlideUp variants={slideUpVariants}>
+        <EtherealShadow variant="subtle">
+          <Card>
         <CardHeader>
           <CardTitle>Project Information</CardTitle>
           <CardDescription>Tell us about your experience</CardDescription>
@@ -361,12 +373,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             />
           </div>
         </CardContent>
-      </Card>
-      </EtherealShadow>
+        </Card>
+        </EtherealShadow>
+      </SlideUp>
 
       {/* Experience */}
-      <EtherealShadow variant="subtle">
-        <Card>
+      <SlideUp variants={slideUpVariants}>
+        <EtherealShadow variant="subtle">
+          <Card>
         <CardHeader>
           <CardTitle>Experience</CardTitle>
           <CardDescription>What&apos;s your background?</CardDescription>
@@ -408,12 +422,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             )}
           </div>
         </CardContent>
-      </Card>
-      </EtherealShadow>
+        </Card>
+        </EtherealShadow>
+      </SlideUp>
 
       {/* Commitment */}
-      <EtherealShadow variant="subtle">
-        <Card>
+      <SlideUp variants={slideUpVariants}>
+        <EtherealShadow variant="subtle">
+          <Card>
         <CardHeader>
           <CardTitle>Commitment</CardTitle>
           <CardDescription>Can you commit to the program?</CardDescription>
@@ -465,12 +481,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             )}
           </div>
         </CardContent>
-      </Card>
-      </EtherealShadow>
+        </Card>
+        </EtherealShadow>
+      </SlideUp>
 
       {/* Education */}
-      <EtherealShadow variant="subtle">
-        <Card>
+      <SlideUp variants={slideUpVariants}>
+        <EtherealShadow variant="subtle">
+          <Card>
         <CardHeader>
           <CardTitle>Education</CardTitle>
           <CardDescription>What&apos;s your learning background?</CardDescription>
@@ -507,12 +525,14 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             </div>
           )}
         </CardContent>
-      </Card>
-      </EtherealShadow>
+        </Card>
+        </EtherealShadow>
+      </SlideUp>
 
       {/* Submit Button */}
-      <EtherealShadow variant="subtle">
-        <Card>
+      <SlideUp variants={slideUpVariants}>
+        <EtherealShadow variant="subtle">
+          <Card>
         <CardContent className="pt-6">
           <Button
             type="submit"
@@ -530,8 +550,10 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
             )}
           </Button>
         </CardContent>
-      </Card>
-      </EtherealShadow>
-    </form>
+        </Card>
+        </EtherealShadow>
+      </SlideUp>
+      </form>
+    </StaggerContainer>
   );
 };

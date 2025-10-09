@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ThemeToggle } from './theme-toggle';
 
 export function Navbar() {
@@ -57,17 +58,24 @@ export function Navbar() {
   ];
 
   return (
-    <nav 
+    <motion.nav 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50"
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="bg-background/85 backdrop-blur-md rounded-full px-2 py-2 shadow-xl border border-border/20 dark:bg-background/85 dark:border-white/10">
+      <motion.div 
+        className="bg-background/85 backdrop-blur-md rounded-full px-2 py-2 shadow-xl border border-border/20 dark:bg-background/85 dark:border-white/10"
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.2 }}
+      >
         <div className="flex items-center space-x-1">
           <ul className="flex items-center space-x-1" role="list">
           {navItems.map((item) => (
             <li key={item.id} role="listitem">
-              <button
+              <motion.button
                 onClick={() => scrollToSection(item.id)}
                 className={`flex items-center justify-center px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-w-[44px] min-h-[44px] ${
                   activeSection === item.id
@@ -76,10 +84,13 @@ export function Navbar() {
                 }`}
                 aria-label={item.ariaLabel}
                 aria-current={activeSection === item.id ? 'page' : undefined}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.1 }}
               >
                 <span className="sm:hidden">{item.label.charAt(0)}</span>
                 <span className="hidden sm:inline">{item.label}</span>
-              </button>
+              </motion.button>
             </li>
           ))}
           </ul>
@@ -87,7 +98,7 @@ export function Navbar() {
             <ThemeToggle />
           </div>
         </div>
-      </div>
-    </nav>
+      </motion.div>
+    </motion.nav>
   );
 }
