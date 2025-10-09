@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { ThemeToggle } from './theme-toggle';
 
 export function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
@@ -61,16 +62,17 @@ export function Navbar() {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="bg-black/85 backdrop-blur-md rounded-full px-2 py-2 shadow-xl border border-white/10">
-        <ul className="flex items-center space-x-1" role="list">
+      <div className="bg-background/85 backdrop-blur-md rounded-full px-2 py-2 shadow-xl border border-border/20 dark:bg-background/85 dark:border-white/10">
+        <div className="flex items-center space-x-1">
+          <ul className="flex items-center space-x-1" role="list">
           {navItems.map((item) => (
             <li key={item.id} role="listitem">
               <button
                 onClick={() => scrollToSection(item.id)}
                 className={`flex items-center justify-center px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 min-w-[44px] min-h-[44px] ${
                   activeSection === item.id
-                    ? 'bg-white text-black shadow-sm'
-                    : 'text-white/90 hover:bg-white/15 hover:text-white focus:bg-white/15 focus:text-white'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-foreground/90 hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground'
                 }`}
                 aria-label={item.ariaLabel}
                 aria-current={activeSection === item.id ? 'page' : undefined}
@@ -80,7 +82,11 @@ export function Navbar() {
               </button>
             </li>
           ))}
-        </ul>
+          </ul>
+          <div className="ml-2 pl-2 border-l border-border/20">
+            <ThemeToggle />
+          </div>
+        </div>
       </div>
     </nav>
   );

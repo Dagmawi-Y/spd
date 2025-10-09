@@ -6,25 +6,28 @@ import { PreviousCohortsSection } from '@/components/sections/PreviousCohortsSec
 import { ApplySection } from '@/components/sections/ApplySection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { Footer } from '@/components/sections/Footer';
+import { EtherealShadow } from '@/components/ui/ethereal-shadow';
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main id="main-content" role="main">
-        <HeroSection />
+    <div className="min-h-screen bg-background">
+      <EtherealShadow className="min-h-screen">
+        <Navbar />
+        <main id="main-content" role="main">
+          <HeroSection />
+          
+          <AboutSection />
+          <HowItWorksSection />
+          
+          <PreviousCohortsSection />
+          
+          <ApplySection />
+          
+          <FAQSection />
+        </main>
         
-        <AboutSection />
-        <HowItWorksSection />
-        
-        <PreviousCohortsSection />
-        
-        <ApplySection />
-        
-        <FAQSection />
-      </main>
-      
-      <Footer />
-    </>
+        <Footer />
+      </EtherealShadow>
+    </div>
   );
 }

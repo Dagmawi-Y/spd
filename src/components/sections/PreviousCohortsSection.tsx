@@ -3,6 +3,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { EtherealShadow } from '@/components/ui/ethereal-shadow';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { getFeaturedProjects, hasMoreProjects } from '@/data/projects';
@@ -13,12 +14,12 @@ export const PreviousCohortsSection: React.FC = () => {
   return (
     <section 
       id="previous-cohorts" 
-      className="py-16 md:py-24 lg:py-32 bg-white scroll-mt-24"
+      className="py-16 md:py-24 lg:py-32 bg-background scroll-mt-24"
       aria-labelledby="previous-cohorts-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 id="previous-cohorts-heading" className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">
+          <h2 id="previous-cohorts-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
             Previous Cohorts
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
@@ -34,11 +35,12 @@ export const PreviousCohortsSection: React.FC = () => {
             : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
         }`}>
           {featuredProjects.map((project) => (
-            <Card key={project.id} className="group hover:shadow-lg transition-all duration-300">
+            <EtherealShadow key={project.id} variant="subtle">
+              <Card className="group hover:shadow-lg transition-all duration-300">
               <div className="relative overflow-hidden rounded-t-lg">
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-gray-300 rounded-lg flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center">
+                  <div className="text-center text-muted-foreground">
+                    <div className="w-16 h-16 mx-auto mb-2 bg-muted rounded-lg flex items-center justify-center">
                       <ExternalLink className="w-8 h-8" />
                     </div>
                     <p className="text-sm">Project Screenshot</p>
@@ -69,7 +71,7 @@ export const PreviousCohortsSection: React.FC = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md font-medium"
+                      className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md font-medium"
                     >
                       {tech}
                     </span>
@@ -95,13 +97,15 @@ export const PreviousCohortsSection: React.FC = () => {
                   )}
                 </div>
               </CardContent>
-            </Card>
+              </Card>
+            </EtherealShadow>
           ))}
         </div>
 
         {showMoreButton && (
           <div className="text-center">
-            <Card className="max-w-2xl mx-auto">
+            <EtherealShadow>
+              <Card className="max-w-2xl mx-auto">
               <CardContent className="pt-6">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold">Want to See More?</h3>
@@ -117,6 +121,7 @@ export const PreviousCohortsSection: React.FC = () => {
                 </div>
               </CardContent>
             </Card>
+            </EtherealShadow>
           </div>
         )}
       </div>

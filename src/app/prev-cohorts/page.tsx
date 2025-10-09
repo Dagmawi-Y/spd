@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { EtherealShadow } from '@/components/ui/ethereal-shadow';
 import { ExternalLink, Github, ArrowLeft, Filter } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Link from 'next/link';
@@ -20,7 +21,8 @@ export default function PrevCohortsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-background">
+      <EtherealShadow className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -41,7 +43,7 @@ export default function PrevCohortsPage() {
                   className="rounded-xl shadow-lg"
                 />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
                 Previous Cohorts
               </h1>
               <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto">
@@ -51,7 +53,8 @@ export default function PrevCohortsPage() {
           </div>
 
           {/* Filters */}
-          <Card className="mb-8">
+          <EtherealShadow variant="subtle">
+            <Card className="mb-8">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Filter className="w-5 h-5 mr-2" />
@@ -96,6 +99,7 @@ export default function PrevCohortsPage() {
               </div>
             </CardContent>
           </Card>
+          </EtherealShadow>
 
           {/* Projects Grid */}
           <div className={`grid gap-8 ${
@@ -106,18 +110,19 @@ export default function PrevCohortsPage() {
               : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
           }`}>
             {filteredProjects.map((project) => (
-              <Card key={project.id} className="group hover:shadow-lg transition-all duration-300">
+              <EtherealShadow key={project.id} variant="subtle">
+                <Card className="group hover:shadow-lg transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-lg">
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <div className="text-center text-gray-500">
-                      <div className="w-16 h-16 mx-auto mb-2 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center">
+                    <div className="text-center text-muted-foreground">
+                      <div className="w-16 h-16 mx-auto mb-2 bg-muted rounded-lg flex items-center justify-center">
                         <ExternalLink className="w-8 h-8" />
                       </div>
                       <p className="text-sm">Project Screenshot</p>
                     </div>
                   </div>
                   <div className="absolute top-3 right-3">
-                    <span className="px-2 py-1 bg-black/80 text-white text-xs rounded-md font-medium">
+                    <span className="px-2 py-1 bg-primary/80 text-primary-foreground text-xs rounded-md font-medium">
                       {project.category}
                     </span>
                   </div>
@@ -146,7 +151,7 @@ export default function PrevCohortsPage() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md font-medium"
+                        className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-md font-medium"
                       >
                         {tech}
                       </span>
@@ -172,14 +177,15 @@ export default function PrevCohortsPage() {
                     )}
                   </div>
                 </CardContent>
-              </Card>
+                </Card>
+              </EtherealShadow>
             ))}
           </div>
 
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">No projects found</h3>
-              <p className="text-gray-600 mb-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">No projects found</h3>
+              <p className="text-muted-foreground mb-8">
                 Try adjusting your filters to see more projects.
               </p>
               <Button 
@@ -194,26 +200,29 @@ export default function PrevCohortsPage() {
           )}
 
           {/* Stats */}
-          <Card className="mt-16">
-            <CardContent className="pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <h3 className="text-3xl font-bold text-black mb-2">{allProjects.length}</h3>
-                  <p className="text-muted-foreground">Projects Built</p>
+          <EtherealShadow variant="intense">
+            <Card className="mt-16">
+              <CardContent className="pt-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                  <div>
+                    <h3 className="text-3xl font-bold text-foreground mb-2">{allProjects.length}</h3>
+                    <p className="text-muted-foreground">Projects Built</p>
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-foreground mb-2">1</h3>
+                    <p className="text-muted-foreground">Cohorts Completed</p>
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-foreground mb-2">100%</h3>
+                    <p className="text-muted-foreground">Completion Rate</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-black mb-2">1</h3>
-                  <p className="text-muted-foreground">Cohorts Completed</p>
-                </div>
-                <div>
-                  <h3 className="text-3xl font-bold text-black mb-2">100%</h3>
-                  <p className="text-muted-foreground">Completion Rate</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </EtherealShadow>
         </div>
       </div>
+      </EtherealShadow>
     </div>
   );
 }

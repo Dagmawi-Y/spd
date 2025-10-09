@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { EtherealShadow } from '@/components/ui/ethereal-shadow';
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 interface ApplicationFormProps {
@@ -155,47 +156,52 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
 
   if (submitStatus === 'success') {
     return (
-      <Card className="border-green-200 bg-green-50">
-        <CardContent className="pt-6">
-          <div className="text-center space-y-4">
-            <CheckCircle className="w-16 h-16 text-green-600 mx-auto" />
-            <div>
-              <h3 className="text-2xl font-bold text-green-800 mb-2">
-                Application Submitted!
-              </h3>
-              <p className="text-green-700 mb-4">
-                Thanks! We&apos;ll review and get back to you soon.
-              </p>
-              <p className="text-sm text-green-600">
-                Check your email and Telegram for updates.
-              </p>
+      <EtherealShadow variant="subtle">
+        <Card className="border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950">
+          <CardContent className="pt-6">
+            <div className="text-center space-y-4">
+              <CheckCircle className="w-16 h-16 text-green-600 dark:text-green-400 mx-auto" />
+              <div>
+                <h3 className="text-2xl font-bold text-green-800 dark:text-green-200 mb-2">
+                  Application Submitted!
+                </h3>
+                <p className="text-green-700 dark:text-green-300 mb-4">
+                  Thanks! We&apos;ll review and get back to you soon.
+                </p>
+                <p className="text-sm text-green-600 dark:text-green-400">
+                  Check your email and Telegram for updates.
+                </p>
+              </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </EtherealShadow>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8" noValidate>
       {submitStatus === 'error' && (
-        <Card className="border-red-200 bg-red-50">
-          <CardContent className="pt-6">
-            <div className="flex items-center space-x-3">
-              <AlertCircle className="w-5 h-5 text-red-600" />
-              <div>
-                <h4 className="text-red-800 font-medium">Submission Error</h4>
-                <p className="text-red-700 text-sm">
-                  There was an error submitting your application. Please try again.
-                </p>
+        <EtherealShadow variant="subtle">
+          <Card className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950">
+            <CardContent className="pt-6">
+              <div className="flex items-center space-x-3">
+                <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
+                <div>
+                  <h4 className="text-red-800 dark:text-red-200 font-medium">Submission Error</h4>
+                  <p className="text-red-700 dark:text-red-300 text-sm">
+                    There was an error submitting your application. Please try again.
+                  </p>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </EtherealShadow>
       )}
 
       {/* Personal Information */}
-      <Card>
+      <EtherealShadow variant="subtle">
+        <Card>
         <CardHeader>
           <CardTitle>Personal Information</CardTitle>
           <CardDescription>Tell us about yourself</CardDescription>
@@ -283,9 +289,11 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           </div>
         </CardContent>
       </Card>
+      </EtherealShadow>
 
       {/* Team Information */}
-      <Card>
+      <EtherealShadow variant="subtle">
+        <Card>
         <CardHeader>
           <CardTitle>Team Information</CardTitle>
           <CardDescription>Do you have a team already?</CardDescription>
@@ -314,9 +322,11 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           </div>
         </CardContent>
       </Card>
+      </EtherealShadow>
 
       {/* Project Information */}
-      <Card>
+      <EtherealShadow variant="subtle">
+        <Card>
         <CardHeader>
           <CardTitle>Project Information</CardTitle>
           <CardDescription>Tell us about your experience</CardDescription>
@@ -352,9 +362,11 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           </div>
         </CardContent>
       </Card>
+      </EtherealShadow>
 
       {/* Experience */}
-      <Card>
+      <EtherealShadow variant="subtle">
+        <Card>
         <CardHeader>
           <CardTitle>Experience</CardTitle>
           <CardDescription>What&apos;s your background?</CardDescription>
@@ -397,9 +409,11 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           </div>
         </CardContent>
       </Card>
+      </EtherealShadow>
 
       {/* Commitment */}
-      <Card>
+      <EtherealShadow variant="subtle">
+        <Card>
         <CardHeader>
           <CardTitle>Commitment</CardTitle>
           <CardDescription>Can you commit to the program?</CardDescription>
@@ -452,9 +466,11 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           </div>
         </CardContent>
       </Card>
+      </EtherealShadow>
 
       {/* Education */}
-      <Card>
+      <EtherealShadow variant="subtle">
+        <Card>
         <CardHeader>
           <CardTitle>Education</CardTitle>
           <CardDescription>What&apos;s your learning background?</CardDescription>
@@ -492,9 +508,11 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           )}
         </CardContent>
       </Card>
+      </EtherealShadow>
 
       {/* Submit Button */}
-      <Card>
+      <EtherealShadow variant="subtle">
+        <Card>
         <CardContent className="pt-6">
           <Button
             type="submit"
@@ -513,6 +531,7 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({
           </Button>
         </CardContent>
       </Card>
+      </EtherealShadow>
     </form>
   );
 };

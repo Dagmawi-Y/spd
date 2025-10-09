@@ -1,5 +1,6 @@
 import React from 'react';
 import { FAQAccordion } from '../ui/faq-accordion';
+import { EtherealShadow } from '../ui/ethereal-shadow';
 
 const faqData = [
   {
@@ -46,19 +47,21 @@ const faqData = [
 
 export const FAQSection: React.FC = () => {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-white">
+    <section className="py-16 md:py-24 lg:py-32 bg-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
             FAQ
           </h2>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto font-medium">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto font-medium">
             Quick answers to common questions.
           </p>
         </div>
         
         <div className="max-w-3xl mx-auto">
-          <FAQAccordion items={faqData} />
+          <EtherealShadow variant="subtle">
+            <FAQAccordion items={faqData} />
+          </EtherealShadow>
         </div>
       </div>
     </section>

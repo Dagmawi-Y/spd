@@ -14,17 +14,17 @@ export function HeroSection() {
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         {/* Subtle gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/50"></div>
         
         {/* Geometric shapes for visual interest */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gray-200/30 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-gray-300/20 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-gray-400/10 rounded-full blur-lg"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-muted/30 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-muted/20 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-muted/10 rounded-full blur-lg"></div>
         
         {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" 
+        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]" 
              style={{
-               backgroundImage: `radial-gradient(circle at 1px 1px, black 1px, transparent 0)`,
+               backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)`,
                backgroundSize: '40px 40px'
              }}>
         </div>
@@ -49,13 +49,13 @@ export function HeroSection() {
           {/* Main Title */}
           <h1 
             id="hero-title"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight"
           >
-            Side Project with Daggy
+            SPD
           </h1>
           
           {/* Tagline */}
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
             3-month mentorship. Real projects. Career readiness.
           </p>
           
