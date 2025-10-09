@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
+import { FadeIn, fadeInVariants } from '@/components/ui/motion';
 import { ExternalLink, Github, ArrowLeft, Filter } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Link from 'next/link';
@@ -21,7 +22,12 @@ export default function PrevCohortsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <FadeIn 
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      className="min-h-screen bg-background"
+    >
       <EtherealShadow className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
@@ -223,6 +229,6 @@ export default function PrevCohortsPage() {
         </div>
       </div>
       </EtherealShadow>
-    </div>
+    </FadeIn>
   );
 }

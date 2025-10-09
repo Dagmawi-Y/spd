@@ -7,10 +7,16 @@ import { ApplySection } from '@/components/sections/ApplySection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { Footer } from '@/components/sections/Footer';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
+import { FadeIn, fadeInVariants } from '@/components/ui/motion';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <FadeIn 
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      className="min-h-screen bg-background"
+    >
       <EtherealShadow className="min-h-screen">
         <Navbar />
         <main id="main-content" role="main">
@@ -28,6 +34,6 @@ export default function Home() {
         
         <Footer />
       </EtherealShadow>
-    </div>
+    </FadeIn>
   );
 }

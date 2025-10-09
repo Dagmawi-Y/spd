@@ -21,7 +21,7 @@ export const fadeInVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.6 }
   }
 }
 
@@ -30,7 +30,7 @@ export const slideUpVariants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5 }
   }
 }
 
@@ -39,7 +39,7 @@ export const scaleVariants = {
   visible: { 
     opacity: 1, 
     scale: 1,
-    transition: { duration: 0.4, ease: "easeOut" }
+    transition: { duration: 0.4 }
   }
 }
 
@@ -59,7 +59,7 @@ export const cardHoverVariants = {
   hover: { 
     scale: 1.02, 
     y: -4,
-    transition: { duration: 0.2, ease: "easeOut" }
+    transition: { duration: 0.2 }
   }
 }
 

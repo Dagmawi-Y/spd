@@ -4,6 +4,7 @@ import { ApplicationForm } from '@/components/forms/ApplicationForm';
 import { ApplicationData } from '@/types/application';
 import { Button } from '@/components/ui/button';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
+import { FadeIn, fadeInVariants } from '@/components/ui/motion';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -22,7 +23,12 @@ export default function ApplyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <FadeIn 
+      variants={fadeInVariants}
+      initial="hidden"
+      animate="visible"
+      className="min-h-screen bg-background"
+    >
       <EtherealShadow className="min-h-screen">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
@@ -58,7 +64,7 @@ export default function ApplyPage() {
         
         <Footer />
       </EtherealShadow>
-    </div>
+    </FadeIn>
   );
 }
 
