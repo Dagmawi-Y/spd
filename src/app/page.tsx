@@ -10,9 +10,6 @@ import { Footer } from '@/components/sections/Footer';
 export default function Home() {
   return (
     <>
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-black text-white px-4 py-2 rounded-md z-50">
-        Skip to main content
-      </a>
       <Navbar />
       <main id="main-content" role="main">
         <HeroSection />
