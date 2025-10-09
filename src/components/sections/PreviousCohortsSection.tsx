@@ -40,16 +40,6 @@ const featuredProjects: Project[] = [
     githubUrl: 'https://github.com/example/codereview-ai',
     liveUrl: 'https://codereview-ai.com',
     imageUrl: '/api/placeholder/600/400'
-  },
-  {
-    id: '3',
-    title: 'EcoTracker',
-    description: 'Mobile app for tracking personal carbon footprint and sustainability goals.',
-    author: 'Elena Rodriguez',
-    cohort: 'Cohort 1',
-    technologies: ['React Native', 'Firebase', 'Node.js', 'Chart.js'],
-    githubUrl: 'https://github.com/example/ecotracker',
-    imageUrl: '/api/placeholder/600/400'
   }
 ];
 

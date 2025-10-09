@@ -20,16 +20,29 @@ export const metadata: Metadata = {
   keywords: ["mentorship", "software development", "side projects", "engineering", "programming", "web development"],
   authors: [{ name: "Daggy" }],
   creator: "Daggy",
+  icons: {
+    icon: "/assets/spd-logo.jpg",
+    apple: "/assets/spd-logo.jpg",
+  },
   openGraph: {
     title: "Side Project with Daggy (SPD)",
     description: "A 3-month mentorship helping aspiring engineers build real projects and grow into world-class developers.",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/assets/spd-logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SPD Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Side Project with Daggy (SPD)",
     description: "A 3-month mentorship helping aspiring engineers build real projects and grow into world-class developers.",
+    images: ["/assets/spd-logo.jpg"],
   },
   robots: {
     index: true,

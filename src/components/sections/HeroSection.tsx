@@ -2,6 +2,7 @@
 
 import { Button } from '../ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function HeroSection() {
 
@@ -31,6 +32,20 @@ export function HeroSection() {
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <div className="space-y-8 md:space-y-12">
+          {/* Logo */}
+          <div className="flex justify-center">
+            <div className="relative">
+              <Image
+                src="/assets/spd-logo.jpg"
+                alt="SPD Logo"
+                width={120}
+                height={120}
+                className="rounded-2xl shadow-lg"
+                priority
+              />
+            </div>
+          </div>
+          
           {/* Main Title */}
           <h1 
             id="hero-title"
@@ -50,6 +65,7 @@ export function HeroSection() {
               <Button 
                 variant="default" 
                 size="lg"
+                className="rounded-none px-8 py-4 text-lg font-semibold min-w-[200px] h-14"
                 aria-label="Apply for Cohort 2 - Navigate to application form"
               >
                 Apply for Cohort 2
@@ -59,6 +75,7 @@ export function HeroSection() {
               <Button 
                 variant="outline" 
                 size="lg"
+                className="rounded-none px-8 py-4 text-lg font-semibold min-w-[200px] h-14"
                 aria-label="See Previous Cohorts - Navigate to showcase section"
               >
                 See Previous Cohorts

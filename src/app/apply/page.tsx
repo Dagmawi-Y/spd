@@ -5,6 +5,8 @@ import { ApplicationData } from '@/types/application';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Footer } from '@/components/sections/Footer';
 
 export default function ApplyPage() {
   const handleSubmit = async (data: ApplicationData) => {
@@ -19,30 +21,43 @@ export default function ApplyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <Link href="/">
-              <Button variant="ghost" className="mb-4">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">
-                Apply for Cohort 2
-              </h1>
-              <p className="text-lg text-muted-foreground font-medium">
-                Ready to build something amazing? Let&apos;s get started.
-              </p>
+    <>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-8">
+              <Link href="/">
+                <Button variant="ghost" className="mb-4">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to Home
+                </Button>
+              </Link>
+              <div className="text-center">
+                <div className="flex justify-center mb-6">
+                  <Image
+                    src="/assets/spd-logo.jpg"
+                    alt="SPD Logo"
+                    width={80}
+                    height={80}
+                    className="rounded-xl shadow-lg"
+                  />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 tracking-tight">
+                  Apply for Cohort 2
+                </h1>
+                <p className="text-lg text-muted-foreground font-medium">
+                  Ready to build something amazing? Let&apos;s get started.
+                </p>
+              </div>
             </div>
+            
+            <ApplicationForm onSubmit={handleSubmit} />
           </div>
-          
-          <ApplicationForm onSubmit={handleSubmit} />
         </div>
       </div>
-    </div>
+      
+      <Footer />
+    </>
   );
 }
 
