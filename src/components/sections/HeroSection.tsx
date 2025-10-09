@@ -56,7 +56,7 @@ export function HeroSection() {
           
           {/* Tagline */}
           <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-medium">
-            3-month mentorship. Real projects. World-class developers.
+            3-month mentorship. Real projects. Career readiness.
           </p>
           
           {/* CTA Buttons */}

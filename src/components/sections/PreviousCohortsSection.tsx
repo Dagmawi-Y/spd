@@ -5,45 +5,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  cohort: string;
-  technologies: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  imageUrl: string;
-}
-
-const featuredProjects: Project[] = [
-  {
-    id: '1',
-    title: 'TaskFlow',
-    description: 'A modern project management tool with real-time collaboration features.',
-    author: 'Sarah Chen',
-    cohort: 'Cohort 1',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    githubUrl: 'https://github.com/example/taskflow',
-    liveUrl: 'https://taskflow-demo.com',
-    imageUrl: '/api/placeholder/600/400'
-  },
-  {
-    id: '2',
-    title: 'CodeReview AI',
-    description: 'AI-powered code review assistant that helps developers write better code.',
-    author: 'Marcus Johnson',
-    cohort: 'Cohort 1',
-    technologies: ['Python', 'FastAPI', 'OpenAI', 'React'],
-    githubUrl: 'https://github.com/example/codereview-ai',
-    liveUrl: 'https://codereview-ai.com',
-    imageUrl: '/api/placeholder/600/400'
-  }
-];
+import { getFeaturedProjects, hasMoreProjects } from '@/data/projects';
 
 export const PreviousCohortsSection: React.FC = () => {
+  const featuredProjects = getFeaturedProjects();
+  const showMoreButton = hasMoreProjects();
   return (
     <section 
       id="previous-cohorts" 
@@ -60,7 +26,13 @@ export const PreviousCohortsSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className={`grid gap-8 mb-12 ${
+          featuredProjects.length === 1 
+            ? 'grid-cols-1 max-w-md mx-auto' 
+            : featuredProjects.length === 2 
+            ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto' 
+            : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+        }`}>
           {featuredProjects.map((project) => (
             <Card key={project.id} className="group hover:shadow-lg transition-all duration-300">
               <div className="relative overflow-hidden rounded-t-lg">
@@ -127,24 +99,26 @@ export const PreviousCohortsSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <Card className="max-w-2xl mx-auto">
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold">Want to See More?</h3>
-                <p className="text-muted-foreground">
-                  Explore all projects from our previous cohorts and get inspired by what you could build.
-                </p>
-                <Link href="/prev-cohorts">
-                  <Button size="lg" className="w-full md:w-auto">
-                    View All Projects
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        {showMoreButton && (
+          <div className="text-center">
+            <Card className="max-w-2xl mx-auto">
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold">Want to See More?</h3>
+                  <p className="text-muted-foreground">
+                    Explore all projects from our previous cohorts and get inspired by what you could build.
+                  </p>
+                  <Link href="/prev-cohorts">
+                    <Button size="lg" className="w-full md:w-auto">
+                      View All Projects
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
       </div>
     </section>
   );

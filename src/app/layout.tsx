@@ -16,17 +16,21 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Side Project with Daggy (SPD) - 3-Month Mentorship Program",
-  description: "A 3-month mentorship helping aspiring engineers build real projects and grow into world-class developers. Apply for Cohort 2 and join our community of builders.",
+  description: "A 3-month mentorship helping aspiring engineers build real projects and get ready for their career. Apply for Cohort 2 and join our community of builders.",
   keywords: ["mentorship", "software development", "side projects", "engineering", "programming", "web development"],
   authors: [{ name: "Daggy" }],
   creator: "Daggy",
   icons: {
-    icon: "/assets/spd-logo.jpg",
-    apple: "/assets/spd-logo.jpg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+    shortcut: "/favicon.ico",
   },
   openGraph: {
     title: "Side Project with Daggy (SPD)",
-    description: "A 3-month mentorship helping aspiring engineers build real projects and grow into world-class developers.",
+    description: "A 3-month mentorship helping aspiring engineers build real projects and get ready for their career",
     type: "website",
     locale: "en_US",
     images: [
@@ -41,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Side Project with Daggy (SPD)",
-    description: "A 3-month mentorship helping aspiring engineers build real projects and grow into world-class developers.",
+    description: "A 3-month mentorship helping aspiring engineers build real projects and get ready for their career",
     images: ["/assets/spd-logo.jpg"],
   },
   robots: {
