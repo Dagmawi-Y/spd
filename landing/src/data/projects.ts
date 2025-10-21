@@ -8,7 +8,7 @@ export interface Project {
   category: string;
   githubUrl?: string;
   liveUrl?: string;
-  imageUrl: string;
+  imageUrl: string[];
 }
 
 export const allProjects: Project[] = [
@@ -22,7 +22,11 @@ export const allProjects: Project[] = [
     technologies: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL', 'Tailwind'],
     githubUrl: 'https://github.com/NegedeTekleyes/E-self-Lerning',
     liveUrl: 'https://e-self-lerning-nbv9.vercel.app/',
-    imageUrl: '/images/HomePage.png'
+    imageUrl: [
+      '/images/HomePage.png',
+      '/images/CoursesPage.png',
+    '/images/InstructorHomePage.png'
+    ]
   }
 ];
 
