@@ -1,5 +1,5 @@
 import { HeroSection } from '@/components/sections/HeroSection';
-import { Navbar } from '@/components/ui/Navbar';
+import { Navbar } from '@/components/ui/navbar';
 import AboutSection from '@/components/sections/AboutSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import { PreviousCohortsSection } from '@/components/sections/PreviousCohortsSection';
