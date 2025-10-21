@@ -12,29 +12,17 @@ export interface Project {
 }
 
 export const allProjects: Project[] = [
-  {
-    id: '1',
-    title: 'TaskFlow',
-    description: 'A modern project management tool with real-time collaboration features, drag-and-drop kanban boards, and team analytics.',
-    author: 'Sarah Chen',
+   {
+    id: '3',
+    title: 'E-Self Web App',
+    description: 'An online self-learning platform with courses, quizzes, and instructor dashboard, built using Next.js, NestJS, Prisma and PostgreSQL.',
+    author: 'Negede Tekleyes & Kalkidan Behailu',
     cohort: 'Cohort 1',
     category: 'Web App',
-    technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    githubUrl: 'https://github.com/example/taskflow',
-    liveUrl: 'https://taskflow-demo.com',
-    imageUrl: '/api/placeholder/600/400'
-  },
-  {
-    id: '2',
-    title: 'CodeReview AI',
-    description: 'AI-powered code review assistant that helps developers write better code by analyzing patterns and suggesting improvements.',
-    author: 'Marcus Johnson',
-    cohort: 'Cohort 1',
-    category: 'AI/ML',
-    technologies: ['Python', 'FastAPI', 'OpenAI', 'React'],
-    githubUrl: 'https://github.com/example/codereview-ai',
-    liveUrl: 'https://codereview-ai.com',
-    imageUrl: '/api/placeholder/600/400'
+    technologies: ['Next.js', 'NestJS', 'Prisma', 'PostgreSQL', 'Tailwind'],
+    githubUrl: 'https://github.com/NegedeTekleyes/E-self-Lerning',
+    liveUrl: 'https://e-self-lerning-nbv9.vercel.app/',
+    imageUrl: '/images/HomePage.png'
   }
 ];
 
