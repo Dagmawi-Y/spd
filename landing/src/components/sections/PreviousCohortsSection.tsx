@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
@@ -22,10 +22,7 @@ export const PreviousCohortsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2
-            id="previous-cohorts-heading"
-            className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight"
-          >
+          <h2 id="previous-cohorts-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
             Previous Cohorts
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
@@ -34,15 +31,13 @@ export const PreviousCohortsSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div
-          className={`grid gap-8 ${
-            featuredProjects.length === 1
-              ? 'grid-cols-1 max-w-md mx-auto'
-              : featuredProjects.length === 2
-              ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto'
-              : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-          }`}
-        >
+        <div className={`grid gap-8 ${
+          featuredProjects.length === 1 
+            ? 'grid-cols-1 max-w-md mx-auto' 
+            : featuredProjects.length === 2 
+            ? 'grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto' 
+            : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+        }`}>
           {featuredProjects.map((project) => (
             <EtherealShadow key={project.id} variant="subtle">
               <Card className="group hover:shadow-lg transition-all duration-300 h-full">
@@ -58,10 +53,29 @@ export const PreviousCohortsSection: React.FC = () => {
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-muted text-muted-foreground">
                       No image available
+            <EtherealShadow key={project.id} variant="subtle">
+              <Card className="group hover:shadow-lg transition-all duration-300 h-full">
+                {/* Project Screenshot */}
+                <div className="relative overflow-hidden rounded-t-lg">
+                  {project.imageUrl[0] ? (
+                    <img
+                      src={project.imageUrl[0]}
+                      alt={`${project.title} Screenshot`}
+                      className="w-full h-48 md:h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-48 md:h-56 bg-muted flex items-center justify-center text-muted-foreground">
+                      No Screenshot
                     </div>
                   )}
+                  <div className="absolute top-3 right-3">
+                    <span className="px-2 py-1 bg-primary/80 text-primary-foreground text-xs rounded-md font-medium">
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
 
+                {/* Card Header */}
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div>
@@ -75,11 +89,13 @@ export const PreviousCohortsSection: React.FC = () => {
                   </div>
                 </CardHeader>
 
+                {/* Card Content */}
                 <CardContent className="space-y-4">
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.description}
                   </p>
-
+                  
+                  {/* Tech badges */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
@@ -91,7 +107,8 @@ export const PreviousCohortsSection: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-3 pt-2">
+                  {/* Buttons */}
+                  <div className="flex items-center gap-3 pt-2 flex-wrap">
                     {project.githubUrl && (
                       <Button variant="outline" size="sm" asChild>
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
