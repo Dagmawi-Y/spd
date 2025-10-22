@@ -135,7 +135,7 @@ export default function PrevCohortsPage() {
     speed={500}
     slidesToShow={1}
     slidesToScroll={1}
-    arrows={true} // show next/prev arrows
+    arrows={true} 
   >
     {project.imageUrl.map((img, idx) => (
       <div key={idx} className="relative w-full aspect-video">
@@ -143,7 +143,9 @@ export default function PrevCohortsPage() {
           src={img}
           alt={`${project.title} screenshot ${idx + 1}`}
           fill
-          className="object-cover"
+           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+           className="object-cover"
+
         />
       </div>
     ))}
