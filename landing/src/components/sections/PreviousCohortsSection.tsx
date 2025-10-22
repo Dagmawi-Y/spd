@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { getFeaturedProjects, hasMoreProjects } from '@/data/projects';
 
 export const PreviousCohortsSection: React.FC = () => {
@@ -13,8 +14,8 @@ export const PreviousCohortsSection: React.FC = () => {
   const showMoreButton = hasMoreProjects();
 
   return (
-    <section 
-      id="previous-cohorts" 
+    <section
+      id="previous-cohorts"
       className="py-16 md:py-24 lg:py-32 bg-background scroll-mt-24"
       aria-labelledby="previous-cohorts-heading"
     >
@@ -38,6 +39,20 @@ export const PreviousCohortsSection: React.FC = () => {
             : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
         }`}>
           {featuredProjects.map((project) => (
+            <EtherealShadow key={project.id} variant="subtle">
+              <Card className="group hover:shadow-lg transition-all duration-300 h-full">
+                <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
+                  {project.imageUrl && project.imageUrl.length > 0 ? (
+                    <Image
+                      src={project.imageUrl[0]}
+                      alt={`${project.title} screenshot`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-muted text-muted-foreground">
+                      No image available
             <EtherealShadow key={project.id} variant="subtle">
               <Card className="group hover:shadow-lg transition-all duration-300 h-full">
                 {/* Project Screenshot */}

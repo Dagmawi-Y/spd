@@ -1,3 +1,5 @@
+"use client"
+
 import { HeroSection } from '@/components/sections/HeroSection';
 import { Navbar } from '@/components/ui/Navbar';
 import AboutSection from '@/components/sections/AboutSection';
