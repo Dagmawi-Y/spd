@@ -1,6 +1,6 @@
-export { Button } from './button';
-export { Input } from './input';
-export { Textarea } from './textarea';
-export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './select';
-export { Checkbox } from './checkbox';
-export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion';
+export { Button } from './Button';
+export { Input } from './Input';
+export { Textarea } from './Textarea';
+export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './Select';
+export { Checkbox } from './Checkbox';
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './Accordion';

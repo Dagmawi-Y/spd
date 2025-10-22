@@ -2,7 +2,7 @@
 
 import { ApplicationForm } from '@/components/forms/ApplicationForm';
 import { ApplicationData } from '@/types/application';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 import { EtherealShadow } from '@/components/ui/ethereal-shadow';
 import { FadeIn, fadeInVariants } from '@/components/ui/motion';
 import { ArrowLeft } from 'lucide-react';
