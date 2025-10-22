@@ -25,7 +25,8 @@ export const allProjects: Project[] = [
     imageUrl: [
       '/images/HomePage.png',
       '/images/CoursesPage.png',
-    '/images/InstructorHomePage.png'
+      '/images/InstructorHomePage.png',
+      '/images/InstructorHome.png'
     ]
   }
 ];
