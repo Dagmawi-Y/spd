@@ -9,6 +9,7 @@ import { ExternalLink, Github, ArrowLeft, Filter } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Link from 'next/link';
 import Image from 'next/image';
+import Slider from 'react-slick';
 import { allProjects, categories, cohorts } from '@/data/projects';
 
 export default function PrevCohortsPage() {
@@ -119,14 +120,35 @@ export default function PrevCohortsPage() {
               <EtherealShadow key={project.id} variant="subtle">
                 <Card className="group hover:shadow-lg transition-all duration-300">
                 <div className="relative overflow-hidden rounded-t-lg">
-                  <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center">
+                  {/* <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center">
                     <div className="text-center text-muted-foreground">
                       <div className="w-16 h-16 mx-auto mb-2 bg-muted rounded-lg flex items-center justify-center">
                         <ExternalLink className="w-8 h-8" />
                       </div>
                       <p className="text-sm">Project Screenshot</p>
                     </div>
-                  </div>
+                  </div> */}
+              <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
+  <Slider
+    dots={true}
+    infinite={true}
+    speed={500}
+    slidesToShow={1}
+    slidesToScroll={1}
+    arrows={true} // show next/prev arrows
+  >
+    {project.imageUrl.map((img, idx) => (
+      <div key={idx} className="relative w-full aspect-video">
+        <Image
+          src={img}
+          alt={`${project.title} screenshot ${idx + 1}`}
+          fill
+          className="object-cover"
+        />
+      </div>
+    ))}
+  </Slider>
+</div>
                   <div className="absolute top-3 right-3">
                     <span className="px-2 py-1 bg-primary/80 text-primary-foreground text-xs rounded-md font-medium">
                       {project.category}
