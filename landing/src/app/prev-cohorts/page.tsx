@@ -9,9 +9,7 @@ import { ExternalLink, Github, ArrowLeft, Filter } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Link from 'next/link';
 import Image from 'next/image';
-import Slider from 'react-slick';
 import { allProjects, categories, cohorts } from '@/data/projects';
-import { defaultSliderSettings } from '@/lib/slider-config';
 
 export default function PrevCohortsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -114,32 +112,25 @@ export default function PrevCohortsPage() {
               <EtherealShadow key={project.id} variant="subtle">
                 <Card className="group hover:shadow-lg transition-all duration-300">
 
-                  {/* Carousel with guard */}
-                  <div className="relative w-full aspect-video rounded-t-lg overflow-hidden">
-                    {project.imageUrl?.length > 0 ? (
-                      <Slider {...defaultSliderSettings} aria-label={`${project.title} carousel`} role="region" aria-live="polite">
-                        {project.imageUrl.map((img, idx) => (
-                          <div key={idx} className="relative w-full aspect-video">
-                            <Image
-                              src={img}
-                              alt={`${project.title} screenshot ${idx + 1}`}
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                              className="object-cover"
-                            />
-                          </div>
-                        ))}
-                      </Slider>
-                    ) : (
-                      <div className="aspect-video bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center">
-                        <div className="text-center text-muted-foreground">
-                          <ExternalLink className="w-8 h-8 mx-auto mb-2" />
-                          <p className="text-sm">No images available</p>
-                        </div>
+                {/* single image */}
+                <div className='relative w-full aspect-video rounded-t-lg overflow-hidden'>
+                  {project.imageUrl?.length >0 ? (
+                    <Image
+                    src={project.imageUrl[0]}
+                    alt={`${project.title} screenshot`}
+                    fill
+                    className="object-cover"
+                    />
+                  ) : (
+                    <div className='aspect-video bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center'>
+                      <div className='text-center text-muted-foreground'>
+                        <ExternalLink className='w-8 h-8 mx-auto mb-2'/>
+                        <p className='text-sm'>No image available</p>
                       </div>
-                    )}
-                  </div>
-
+                    </div>
+                  )}
+                 </div>
+                  
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
@@ -152,6 +143,8 @@ export default function PrevCohortsPage() {
                       </div>
                     </div>
                   </CardHeader>
+                    
+
 
                   <CardContent className="space-y-4">
                     <p className="text-sm text-muted-foreground leading-relaxed">
